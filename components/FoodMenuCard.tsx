@@ -7,9 +7,9 @@ import { X } from "lucide-react";
 export type FoodData = {
   subtitle: string;
   daily: string;
-  nonVeg: string[];
-  snacks: string;
-  note: string;
+  nonVeg?: string[];   // optional
+  snacks?: string;    // optional
+  note?: string;      // optional
 };
 
 type Props = {
@@ -21,7 +21,7 @@ export default function FoodMenuCard({ data }: Props) {
 
   return (
     <>
-      {/* 🔹 Card */}
+      {/* 🔹 Food Card */}
       <motion.div
         whileTap={{ scale: 0.97 }}
         onClick={() => setOpen(true)}
@@ -32,13 +32,12 @@ export default function FoodMenuCard({ data }: Props) {
           🍽️ Food Menu
         </h2>
 
-        {/* ✅ FIX #1: subtitle contrast */}
         <p className="text-sm text-gray-700 font-medium mt-1">
           {data.subtitle}
         </p>
 
         <p className="text-xs text-indigo-600 font-medium mt-2">
-          👉 Tap to view full food details
+          👉 Tap to view food details
         </p>
       </motion.div>
 
@@ -61,63 +60,73 @@ export default function FoodMenuCard({ data }: Props) {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
             >
-              {/* 🔹 Header */}
-              <div className="flex items-center justify-between 
-              px-5 py-4 border-b">
-                <h3 className="text-lg font-semibold text-gray-900">
+              {/* 🔹 Header (NO divider line) */}
+              <div className="flex items-center justify-between px-5 py-4">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                   🍽️ Food Details
                 </h3>
 
-                {/* ❌ Close Button */}
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-2 rounded-full 
-                  hover:bg-gray-100 transition"
+                  className="p-2 rounded-full hover:bg-gray-100 transition"
                 >
-                  {/* ✅ FIX #2: close icon contrast */}
                   <X className="w-5 h-5 text-gray-700" />
                 </button>
               </div>
 
-              {/* 🔹 Content */}
-              <div className="p-5 space-y-4 text-sm text-gray-800">
-                <div className="bg-green-50 border border-green-100 
-                p-4 rounded-xl">
-                  <p className="font-medium text-green-800">
-                    Daily Meals
+              {/* 🔹 Content (reduced gaps) */}
+              <div className="px-5 pb-5 space-y-2 text-sm text-gray-800">
+                
+                {/* Daily Food */}
+                <div className="bg-green-50 border border-green-200 
+                p-3 rounded-xl">
+                  <p className="font-semibold text-green-800">
+                    🍽️ Daily Food
                   </p>
                   <p className="mt-1 text-gray-700">
                     {data.daily}
                   </p>
                 </div>
 
-                <div className="bg-rose-50 border border-rose-100 
-                p-4 rounded-xl">
-                  <p className="font-medium text-rose-800">
-                    Non-Veg Options
-                  </p>
-                  <ul className="list-disc ml-5 mt-2 text-gray-700">
-                    {data.nonVeg.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Non-Veg (optional) */}
+                {data.nonVeg && data.nonVeg.length > 0 && (
+                  <div className="bg-rose-50 border border-rose-200 
+                  p-3 rounded-xl">
+                    <p className="font-semibold text-rose-800">
+                      🍗 Non-Vegetarian
+                    </p>
+                    <ul className="list-disc ml-5 mt-1 text-gray-700">
+                      {data.nonVeg.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-                <div className="bg-yellow-50 border border-yellow-100 
-                p-4 rounded-xl">
-                  <p className="font-medium text-yellow-800">
-                    Snacks
-                  </p>
-                  <p className="mt-1 text-gray-700">
-                    {data.snacks}
-                  </p>
-                </div>
+                {/* Snacks (optional – only if exists) */}
+                {data.snacks && (
+                  <div className="bg-yellow-50 border border-yellow-200 
+                  p-3 rounded-xl">
+                    <p className="font-semibold text-yellow-800">
+                      🍪 Snacks
+                    </p>
+                    <p className="mt-1 text-gray-700">
+                      {data.snacks}
+                    </p>
+                  </div>
+                )}
 
-                {/* ✅ FIX #3: note contrast */}
-                <div className="bg-blue-50 border border-blue-100 
-                p-4 rounded-xl text-xs text-gray-700 font-medium">
-                  ℹ️ {data.note}
-                </div>
+                {/* Note */}
+                {data.note && (
+                  <>
+                    <div className="h-px bg-gray-200 my-2" />
+                    <div className="bg-blue-50 border border-blue-200 
+                    p-3 rounded-xl text-xs text-gray-700 font-medium">
+                      ℹ️ {data.note}
+                    </div>
+                  </>
+                )}
+
               </div>
             </motion.div>
           </motion.div>

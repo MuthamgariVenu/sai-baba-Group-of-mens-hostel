@@ -1,109 +1,96 @@
 "use client";
 
 import {
-  Shield,
-  Bed,
+  ShieldCheck,
+  BedDouble,
   Utensils,
   Wifi,
   Sparkles,
-  User,
+  UserCheck,
+  WashingMachine,
+  Refrigerator,
+  Flame,
+  Droplets,
+  Dumbbell,
+  Archive,
 } from "lucide-react";
 
-const facilities = [
-  {
-    title: "24/7 Security & CCTV",
-    icon: Shield,
-    bg: "from-blue-50 to-blue-100",
-    iconBg: "bg-blue-200",
-  },
-  {
-    title: "Comfort Interiors",
-    icon: Bed,
-    bg: "from-purple-50 to-purple-100",
-    iconBg: "bg-purple-200",
-  },
-  {
-    title: "Healthy Food",
-    icon: Utensils,
-    bg: "from-pink-50 to-pink-100",
-    iconBg: "bg-pink-200",
-  },
-  {
-    title: "High-Speed WiFi",
-    icon: Wifi,
-    bg: "from-indigo-50 to-indigo-100",
-    iconBg: "bg-indigo-200",
-  },
-  {
-    title: "Daily Housekeeping",
-    icon: Sparkles,
-    bg: "from-rose-50 to-rose-100",
-    iconBg: "bg-rose-200",
-  },
-  {
-    title: "Women-Friendly Management",
-    icon: User,
-    bg: "from-teal-50 to-teal-100",
-    iconBg: "bg-teal-200",
-  },
-];
+type FacilityItem = {
+  title: string;
+  subtitle?: string;
+  icon: string;
+  bg: string;
+  iconBg: string;
+  badge?: string;
+};
 
-export default function CommonFacilities() {
+type CommonFacilitiesProps = {
+  data: FacilityItem[];
+};
+
+const iconMap: Record<string, any> = {
+  security: ShieldCheck,
+  bed: BedDouble,
+  food: Utensils,
+  wifi: Wifi,
+  housekeeping: Sparkles,
+  management: UserCheck,
+  washing: WashingMachine,
+  fridge: Refrigerator,
+  geyser: Flame,
+  water: Droplets,
+  shoe: Archive,
+  gym: Dumbbell,
+};
+
+export default function CommonFacilities({ data }: CommonFacilitiesProps) {
   return (
-    <section className="mt-16">
-      <h2 className="px-4 text-lg font-semibold text-gray-900 mb-5">
-        Designed for Women’s Comfort & Safety
+    <section className="mt-8">
+      {/* TITLE */}
+      <h2 className="px-4 text-base font-semibold text-gray-900 mb-4">
+        Facilities
       </h2>
 
-      <div className="overflow-hidden">
-        <div className="flex gap-5 animate-scroll px-4">
-          {[...facilities, ...facilities].map((item, index) => {
-            const Icon = item.icon;
+      {/* GRID */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 px-4">
+        {data.map((item, index) => {
+          const Icon = iconMap[item.icon];
 
-            return (
+          return (
+            <div
+              key={index}
+              className={`relative h-[96px] rounded-xl bg-gradient-to-br ${item.bg}
+              shadow-sm px-2 py-3 flex flex-col items-center justify-center`}
+            >
+              {/* Badge */}
+              {item.badge && (
+                <span className="absolute top-1.5 right-1.5 text-[9px] px-1.5 py-[1px] rounded-full bg-green-500 text-white font-medium">
+                  {item.badge}
+                </span>
+              )}
+
+              {/* Icon */}
               <div
-                key={index}
-                className={`min-w-[200px] rounded-3xl bg-gradient-to-br ${item.bg}
-                shadow-md px-5 py-6 transition-transform duration-300 hover:scale-[1.03]`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center ${item.iconBg}`}
               >
-                <div
-                  className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center ${item.iconBg}`}
-                >
-                  <Icon className="w-6 h-6 text-gray-800" />
-                </div>
-
-                <p className="mt-4 text-sm text-gray-900 text-center font-medium">
-                  {item.title}
-                </p>
+                {Icon && <Icon className="w-4 h-4 text-gray-800" />}
               </div>
-            );
-          })}
-        </div>
+
+              {/* Title */}
+              <p className="mt-1.5 text-[11px] font-medium text-gray-900 text-center leading-tight line-clamp-2">
+                {item.title}
+              </p>
+
+              {/* Subtitle */}
+              {item.subtitle && (
+                <p className="text-[10px] text-gray-500 text-center mt-0.5 line-clamp-1">
+                  {item.subtitle}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
-
-      {/* FAST + PREMIUM AUTO SCROLL */}
-      <style jsx>{`
-        .animate-scroll {
-          animation: scroll 16s linear infinite;
-          will-change: transform;
-        }
-
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
-
-        /* Mobile little faster */
-        @media (max-width: 640px) {
-          .animate-scroll {
-            animation-duration: 14s;
-          }
-        }
-      `}</style>
     </section>
   );
 }
