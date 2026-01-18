@@ -14,11 +14,13 @@ import {
   Dumbbell,
   Archive,
   BatteryCharging,
+  Tv, // ✅ FIX: ADD THIS
 } from "lucide-react";
 
 type FacilityItem = {
   title: string;
   subtitle?: string;
+  sub?: string; // backward support
   icon: string;
   bg: string;
   iconBg: string;
@@ -32,7 +34,7 @@ type ElectricityInfo = {
 
 type CommonFacilitiesProps = {
   data: FacilityItem[];
-  electricity?: ElectricityInfo; // ✅ NEW (dynamic)
+  electricity?: ElectricityInfo;
 };
 
 const iconMap: Record<string, any> = {
@@ -49,6 +51,7 @@ const iconMap: Record<string, any> = {
   shoe: Archive,
   gym: Dumbbell,
   power: BatteryCharging,
+  tv: Tv, // ✅ NOW WORKS
 };
 
 export default function CommonFacilities({
@@ -66,6 +69,7 @@ export default function CommonFacilities({
       <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 px-4">
         {data.map((item, index) => {
           const Icon = iconMap[item.icon];
+          const subtitleText = item.subtitle || item.sub;
 
           return (
             <div
@@ -93,9 +97,9 @@ export default function CommonFacilities({
               </p>
 
               {/* Subtitle */}
-              {item.subtitle && (
-                <p className="text-[10px] text-gray-500 text-center mt-0.5 line-clamp-1">
-                  {item.subtitle}
+              {subtitleText && (
+                <p className="text-[10px] text-gray-500 text-center mt-0.5">
+                  {subtitleText}
                 </p>
               )}
             </div>
@@ -103,7 +107,7 @@ export default function CommonFacilities({
         })}
       </div>
 
-      {/* ⚡ ELECTRICITY BILL INFO (BOTTOM – BLINK – DYNAMIC) */}
+      {/* ⚡ ELECTRICITY INFO */}
       {electricity?.included && (
         <div
           className="mt-4 mx-4 text-center text-sm font-semibold text-green-700"

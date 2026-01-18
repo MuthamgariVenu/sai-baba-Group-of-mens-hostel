@@ -1,6 +1,6 @@
 import PgPage from "@/components/PgPage";
 import { bloomData } from "@/data/bloom";
 
-export default function BloomPage() {
+export default function SaiBabaMensHostelPage() {
   return <PgPage data={bloomData} />;
 }

@@ -1,14 +1,14 @@
 export const grandData = {
   hero: {
-    image: "/images/g1.jpg",
+    image: "/images/pp.jpg",
     rating: "4.8",
-    area: "Kondapur",
+    area: "Pocharam",
     address:
-      "A block , plot no 73, Kondapur, Sriram Nagar, Hyderabad, Telangana 500084",
-    landmark: "Beside Chirec International school",
-    nearby: ["15 mins to Metro", "Near IT Offices"],
-    mapUrl: "https://maps.app.goo.gl/s7WoqU796raXnyPNA?g_st=iw",
-    title: "Platinum Grand Women's PG",
+      "Pocharam, Hyderabad, Telangana 500088",
+    landmark: "Beside Infosys Main gate Pocharam",
+    nearby: ["Near Busstop", "Near IT Offices"],
+    mapUrl: "https://maps.app.goo.gl/gZSfBzVm6mLho5UAA?g_st=iw",
+    title: "Platinum Nest Men's PG&Hostel",
     subtitle: "Luxury Rooms • Prime Location",
     primaryPhone: "9701716111",
     secondaryPhone: "9985499864",
@@ -17,7 +17,7 @@ export const grandData = {
   // ✅ ADD THIS (VERY IMPORTANT)
   facilities: [
   {
-    title: "24/7 Security & CCTV",
+    title: "Security & CCTV",
     sub: "Surveillance",
     icon: "security",
     bg: "from-blue-50 to-blue-100",
@@ -42,10 +42,17 @@ export const grandData = {
     iconBg: "bg-indigo-200",
     badge: "Popular",
   },
-
+{
+  title: "Television",
+  sub: "Each floor",
+  icon: "tv",
+  bg: "from-violet-50 to-violet-100",
+  iconBg: "bg-violet-200",
+}
+,
   {
     title: "Washing Machine",
-    sub: "Laundry",
+    sub: "",
     icon: "washing",
     bg: "from-blue-50 to-blue-100",
     iconBg: "bg-blue-200",
@@ -53,7 +60,7 @@ export const grandData = {
 
   {
     title: "Cupboards & Shoe Rack",
-    sub: "Personal storage",
+    sub: "",
     icon: "shoe",
     bg: "from-cyan-50 to-cyan-100",
     iconBg: "bg-cyan-200",
@@ -93,7 +100,8 @@ export const grandData = {
 ]
 ,
 electricity: {
-  included: false,
+   included: true,
+    text: "Sepearte Spcae Availbale(For Night Shift)",
 },
 
 
@@ -101,29 +109,28 @@ electricity: {
     subtitle: "Homely food • 3 times daily",
     daily: "Breakfast, Lunch & Dinner",
     nonVeg: ["Chicken – 2 times/week", "Egg – 2 times/week"],
-    snacks: "Weekends",
+    
     note: "Menu may vary on special occasions & festivals",
   },
 
   rooms: {
     subtitle: "Room 2 / 3 / 4 Sharing",
     prices: [
-      { type: "4 Sharing", price: "₹7,000" },
-      { type: "3 Sharing", price: "₹8,500 Non AC / ₹10,000 AC" },
-      { type: "2 Sharing", price: "₹10,500 / ₹12,000 Non AC" },
-      { type: "2 Sharing", price: "₹12,500 / ₹14,000 AC" },
-      { type: "Single Sharing", price: "₹20,000 Non AC / ₹22,000 AC" },
+      { type: "4 Sharing", price: "₹6,000 And ₹6,500" },
+      { type: "3 Sharing", price: "₹7,000 And ₹7,500" },
+      { type: "2 Sharing", price: "₹8,000 And ₹8,500 " },
+    
+    
     ],
-    note: " For AC Advance ₹5,000 applicable ,3000 refundable • 1 Month prior notice mandatory",
+    note: " Advance ₹3,000 applicable ,2000 refundable • 1 Month prior notice mandatory",
   },
 
   gallery: [
-    { src: "/images/g1.jpg", label: "Entrance" },
-    { src: "/images/g3.jpg", label: "Dinning" },
-    { src: "/images/g4.jpg", label: "Room" },
-    { src: "/images/g5.jpg", label: "Water Dispenser" },
-    { src: "/images/g6.jpg", label: "Washing Machine" },
-    { src: "/images/g7.jpg", label: "Fridge" },
-    { src: "/images/g8.jpg", label: "Bathroom" },
+    { src: "/images/p1.jpg", label: "Entrance" },
+    { src: "/images/p2.jpg", label: "Hall" },
+    { src: "/images/p3.jpg", label: "TV" },
+    { src: "/images/p4.jpg", label: "Power Backup" },
+    { src: "/images/p5.jpg", label: "Room" },
+    
   ],
 };

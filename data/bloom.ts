@@ -1,20 +1,20 @@
 export const bloomData = {
   hero: {
-    image: "/images/b1.jpg",
+    image: "/images/ven.jpg",
     rating: "4.6",
-    area: "Siddiq Nagar",
-    address: " Road Number 10th , Siddiq Nagar, Hitech City, Hyderabad – 500032",
-    
+    area: "Anjaiah Nagar",
+    address: " Anjaiah Nagar,Gachibowli, Hyderabad – 500084",
+    landmark: "SLN Terminus,Opp:Kakatiya Hospital Lane",
     nearby: ["10 mins to Raidurga Metro", "Near IT Offices"],
-    mapUrl: "https://maps.app.goo.gl/UHEVK878fEfpCQQVA?g_st=iw",
-    title: "Platinum Bloom Women's PG",
+    mapUrl: "https://maps.app.goo.gl/iNEnDcJY3mirYch18?g_st=iw",
+    title: "Sai Baba Men's  Hostel 1",
     subtitle: "Clean Rooms • Homely Food • Near Metro",
     primaryPhone: "9701716111",
     secondaryPhone: "9985499864",
   },
 facilities: [
   {
-    title: "24/7 Security & CCTV",
+    title: "Security & CCTV",
     sub: "Surveillance",
     icon: "security",
     bg: "from-blue-50 to-blue-100",
@@ -22,14 +22,7 @@ facilities: [
     badge: "Secure",
   },
 
-  {
-    title: "Fingerprint Access",
-    sub: "Secure entry",
-    icon: "fingerprint",
-    bg: "from-purple-50 to-purple-100",
-    iconBg: "bg-purple-200",
-    badge: "Secure",
-  },
+  
 
   {
     title: "High-Speed WiFi",
@@ -42,18 +35,25 @@ facilities: [
 
   {
     title: "Washing Machine",
-    sub: "Laundry",
+    sub: "",
     icon: "washing",
     bg: "from-blue-50 to-blue-100",
     iconBg: "bg-blue-200",
   },
 
   {
-    title: "Cupboards & Shoe Rack",
+    title: "Cupboards ",
     sub: "Personal storage",
     icon: "shoe",
     bg: "from-cyan-50 to-cyan-100",
     iconBg: "bg-cyan-200",
+  },
+{
+    title: "Shoe Rack",
+    sub: "Organized footwear",
+    icon: "shoe",
+    bg: "from-emerald-50 to-emerald-100",
+    iconBg: "bg-emerald-200",
   },
 
   {
@@ -80,13 +80,7 @@ facilities: [
     iconBg: "bg-teal-200",
   },
 
-  {
-    title: "Power Backup",
-    sub: "24/7 electricity",
-    icon: "power",
-    bg: "from-gray-50 to-gray-100",
-    iconBg: "bg-gray-200",
-  },
+  
 ]
 ,
 electricity: {
@@ -97,8 +91,8 @@ electricity: {
   food: {
     subtitle: "Homely food • 3 times daily",
     daily: "Breakfast, Lunch & Dinner",
-    nonVeg: ["Chicken – 2 times/week", "Egg – 2 times/week"],
-    snacks: "Weekends",
+    nonVeg: ["Chicken – 2 times/week", "Egg – 2 times/week","Fruits - 1 time /week"],
+    
     note: "Menu may vary on special occasions & festivals",
   },
 
@@ -107,9 +101,9 @@ electricity: {
     prices: [
       
       
-      { type: "4 Sharing", price: "₹6000 And ₹6500" },
-      { type: "3 Sharing", price: "₹7500 And ₹8000" },
-      { type: "2 Sharing", price: "₹9500" },
+      { type: "4 Sharing", price: "₹6500 /Month" },
+      { type: "3 Sharing", price: "₹7500 /Month" },
+      { type: "2 Sharing", price: "₹9500 /month" },
     ],
     note: "Advance ₹3,000 applicable ,2000 refundable • 1 Month prior notice mandatory",
   },
@@ -119,11 +113,11 @@ electricity: {
 
   gallery: [
   
-    { src: "/images/b1.jpg", label: "Entrance" },
-      { src: "/images/b2.jpg", label: "Room" },
-    { src: "/images/b3.jpg", label: "Room" },
-      { src: "/images/b4.jpg", label: "Room" },
-    { src: "/images/b5.jpg", label: "Room" },  
+    { src: "/images/s1.jpg", label: "Building" },
+      { src: "/images/s2.jpg", label: "Room" },
+    { src: "/images/s3.jpg", label: "Room" },
+      { src: "/images/s4.jpg", label: "Room" },
+  
     
     
   ],

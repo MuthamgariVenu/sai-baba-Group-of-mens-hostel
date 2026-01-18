@@ -1,23 +1,23 @@
 export const eliteData = {
   hero: {
-    image: "/images/Entrance.jpg",
+    image: "/images/s21.jpg",
     rating: "4.7",
-    area: "Anjaiah Nagar",
+    area: "Siddiq Nagar",
     address:
-      "1-6-30/121, Beside Sai baba temple, Anjaiah Nagar, Gachibowli, Hyderabad, Telangana 500084",
-    landmark: "Beside Sai Baba Temple",
+      "Road Number 9 , Siddiq Nagar, Hitech City, Hyderabad, Telangana 500084",
+    
     nearby: ["10 mins to Raidurga Metro", "Near IT Offices"],
-    mapUrl: "https://share.google/IsdXTo9IUYHOTiTVT",
-    title: "Platinum Elite Women's PG",
+    mapUrl: "https://maps.app.goo.gl/pfUEALsVTSBQJpST6?g_st=iw",
+    title: "Sai Baba Men's Hostel 2",
     subtitle: "Premium Stay • Hygienic Food",
-    primaryPhone: "6300250450",
-    secondaryPhone: "9701716111",
+    primaryPhone: "8978499854",
+    secondaryPhone: "9985499864",
   },
 
   // ✅ ADD THIS (VERY IMPORTANT)
  facilities: [
   {
-    title: "24/7 Security & CCTV",
+    title: "Security & CCTV",
     sub: "Surveillance",
     icon: "security",
     bg: "from-blue-50 to-blue-100",
@@ -45,7 +45,7 @@ export const eliteData = {
 
   {
     title: "Washing Machine",
-    sub: "Laundry",
+    sub: "",
     icon: "washing",
     bg: "from-blue-50 to-blue-100",
     iconBg: "bg-blue-200",
@@ -76,7 +76,7 @@ export const eliteData = {
   },
 
   {
-    title: "Refrigerator",
+    title: "Fridge",
     sub: "Each floor",
     icon: "fridge",
     bg: "from-sky-50 to-sky-100",
@@ -84,12 +84,13 @@ export const eliteData = {
   },
 
   {
-    title: "Water Dispenser",
-    sub: "Each floor",
-    icon: "water",
-    bg: "from-teal-50 to-teal-100",
-    iconBg: "bg-teal-200",
-  },
+  title: "Water Dispenser",
+  sub: "Each floor",
+  icon: "water",
+  bg: "from-teal-50 to-teal-100",
+  iconBg: "bg-teal-200",
+}
+
 ]
 
 ,
@@ -100,26 +101,27 @@ electricity: {
   food: {
     subtitle: "Homely food • 3 times daily",
     daily: "Breakfast, Lunch & Dinner",
-    nonVeg: ["Chicken – 2 times/week", "Egg – 3 times/week"],
+    nonVeg: ["Chicken – 2 times/week", "Egg – 2 times/week"],
     note: "Menu may vary on special occasions & festivals",
   },
 
   rooms: {
-    subtitle: "Room 2 / 3 / 4 Sharing",
+    subtitle: "Room 2 / 3 / 4 / 5 Sharing",
     prices: [
+      { type: "5 Sharing", price: "₹6,000" },
       { type: "4 Sharing", price: "₹6,500" },
-      { type: "3 Sharing", price: "₹7,500" },
-      { type: "2 Sharing", price: "₹10,000" },
+      { type: "3 Sharing", price: "₹7,000 And ₹8,000" },
+      { type: "2 Sharing", price: "₹9,500" },
     ],
     note: "Advance ₹3,000 applicable ,2000 refundable • 1 Month prior notice mandatory",
   },
 
   gallery: [
-    { src: "/images/Entrance.jpg", label: "Entrance" },
-    { src: "/images/dinning.jpg", label: "Dinning" },
-    { src: "/images/room.jpg", label: "Room" },
-    { src: "/images/room1.jpg", label: "Room" },
-    { src: "/images/room2.jpg", label: "Room" },
+    { src: "/images/s22.jpg", label: "Entrance" },
+    { src: "/images/s23.jpg", label: "Room" },
+    { src: "/images/s24.jpg", label: "Room" },
+    { src: "/images/s25.jpg", label: "Room" },
+    { src: "/images/s26.jpg", label: "BathRoom" },
     
 
   ],

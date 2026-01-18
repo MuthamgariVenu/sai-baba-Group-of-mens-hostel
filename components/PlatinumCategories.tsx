@@ -2,12 +2,25 @@
 
 import { useRouter } from "next/navigation";
 import { Sparkles, Crown, Building2, Star } from "lucide-react";
-
 const categories = [
-  { title: "Platinum Bloom", icon: Sparkles, bg: "from-pink-50 to-pink-100", href: "/bloom" },
-  { title: "Platinum Elite", icon: Crown, bg: "from-indigo-50 to-indigo-100", href: "/elite" },
-  { title: "Platinum Grand", icon: Building2, bg: "from-purple-50 to-purple-100", href: "/grand" },
-  { title: "Platinum Prime", icon: Star, bg: "from-blue-50 to-blue-100", href: "/prime" },
+  {
+    title: "Sai Baba Men's Hostel 1",
+    icon: Sparkles,
+    bg: "from-pink-50 to-pink-100",
+    href: "/sai-baba-men-hostel",
+  },
+  {
+    title: "Sai Baba Men's Hostel 2",
+    icon: Crown,
+    bg: "from-indigo-50 to-indigo-100",
+    href: "/sai-baba-men-hostel-2",
+  },
+  {
+    title: "Platinum Nest Men's Hostel",
+    icon: Building2,
+    bg: "from-emerald-50 to-emerald-100",
+    href: "/platinum-nest-men-hostel",
+  },
 ];
 
 export default function PlatinumCategories() {
@@ -16,7 +29,7 @@ export default function PlatinumCategories() {
   return (
     <section className="mt-20 px-4">
       <h2 className="text-xl font-semibold text-gray-900 text-center">
-        Our Premium Women’s PG Categories
+        Sai Baba Men's PG Categories
       </h2>
       <p className="text-sm text-gray-600 text-center mt-1">
         Choose the lifestyle that fits you best
