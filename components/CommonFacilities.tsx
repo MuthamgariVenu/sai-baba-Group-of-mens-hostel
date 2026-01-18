@@ -13,6 +13,7 @@ import {
   Droplets,
   Dumbbell,
   Archive,
+  BatteryCharging,
 } from "lucide-react";
 
 type FacilityItem = {
@@ -24,8 +25,14 @@ type FacilityItem = {
   badge?: string;
 };
 
+type ElectricityInfo = {
+  included: boolean;
+  text?: string;
+};
+
 type CommonFacilitiesProps = {
   data: FacilityItem[];
+  electricity?: ElectricityInfo; // ✅ NEW (dynamic)
 };
 
 const iconMap: Record<string, any> = {
@@ -41,9 +48,13 @@ const iconMap: Record<string, any> = {
   water: Droplets,
   shoe: Archive,
   gym: Dumbbell,
+  power: BatteryCharging,
 };
 
-export default function CommonFacilities({ data }: CommonFacilitiesProps) {
+export default function CommonFacilities({
+  data,
+  electricity,
+}: CommonFacilitiesProps) {
   return (
     <section className="mt-8">
       {/* TITLE */}
@@ -91,6 +102,31 @@ export default function CommonFacilities({ data }: CommonFacilitiesProps) {
           );
         })}
       </div>
+
+      {/* ⚡ ELECTRICITY BILL INFO (BOTTOM – BLINK – DYNAMIC) */}
+      {electricity?.included && (
+        <div
+          className="mt-4 mx-4 text-center text-sm font-semibold text-green-700"
+          style={{ animation: "blink 1.5s infinite" }}
+        >
+          ⚡ {electricity.text ?? "Electricity Bill Included"}
+        </div>
+      )}
+
+      {/* Blink animation */}
+      <style jsx>{`
+        @keyframes blink {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.4;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </section>
   );
 }

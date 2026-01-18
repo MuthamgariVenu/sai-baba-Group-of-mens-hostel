@@ -6,11 +6,14 @@ import RoomsCard from "@/components/RoomsCard";
 import GalleryCard from "@/components/GalleryCard";
 import LocationCard from "@/components/LocationCard";
 import CommonFacilities from "@/components/CommonFacilities";
-
 type PgPageProps = {
   data: {
     hero: any;
-    facilities: any[]; // ✅ IMPORTANT FIX
+    facilities: any[];
+    electricity?: {
+      included: boolean;
+      text?: string;
+    };
     food: any;
     rooms: any;
     gallery: any;
@@ -23,7 +26,11 @@ export default function PgPage({ data }: PgPageProps) {
       <HeroCard {...data.hero} />
 
       {/* ✅ Dynamic Facilities */}
-      <CommonFacilities data={data.facilities} />
+      <CommonFacilities
+  data={data.facilities}
+  electricity={data.electricity}
+/>
+
 
       <FoodMenuCard data={data.food} />
       <RoomsCard data={data.rooms} />

@@ -6,7 +6,7 @@ export const primeData = {
     address: "Anjaiah Nagar, Gachibowli, Hyderabad, Telangana 500032",
     landmark: "Opposite DMart",
     nearby: ["10 mins to Metro", "Near IT Offices"],
-    mapUrl: "https://maps.app.goo.gl/FTUKUZv5LqRDmXHC9?g_st=im",
+    mapUrl: "https://share.google/vMHqDJwYbcRFCifuf",
     title: "Platinum Prime Women's PG",
     subtitle: "Affordable • Clean • Safe",
     primaryPhone: "6300250450",
@@ -14,8 +14,89 @@ export const primeData = {
   },
 
   // ✅ ADD THIS (IMPORTANT)
-  facilities: [],
+ facilities: [
+  {
+    title: "24/7 Security & CCTV",
+    sub: "Surveillance",
+    icon: "security",
+    bg: "from-blue-50 to-blue-100",
+    iconBg: "bg-blue-200",
+    badge: "Secure",
+  },
 
+  {
+    title: "Fingerprint Access",
+    sub: "Secure entry",
+    icon: "fingerprint",
+    bg: "from-purple-50 to-purple-100",
+    iconBg: "bg-purple-200",
+    badge: "Secure",
+  },
+
+  {
+    title: "High-Speed WiFi",
+    sub: "Fast internet",
+    icon: "wifi",
+    bg: "from-indigo-50 to-indigo-100",
+    iconBg: "bg-indigo-200",
+    badge: "Popular",
+  },
+
+  {
+    title: "Washing Machine",
+    sub: "Laundry",
+    icon: "washing",
+    bg: "from-blue-50 to-blue-100",
+    iconBg: "bg-blue-200",
+  },
+
+  {
+    title: "Cupboards",
+    sub: "Personal storage",
+    icon: "fridge",
+    bg: "from-cyan-50 to-cyan-100",
+    iconBg: "bg-cyan-200",
+  },
+
+  {
+    title: "Shoe Rack",
+    sub: "Organized footwear",
+    icon: "shoe",
+    bg: "from-emerald-50 to-emerald-100",
+    iconBg: "bg-emerald-200",
+  },
+
+  {
+    title: "Geyser",
+    sub: "Hot water",
+    icon: "geyser",
+    bg: "from-orange-50 to-orange-100",
+    iconBg: "bg-orange-200",
+  },
+
+  {
+    title: "Refrigerator",
+    sub: "Each floor",
+    icon: "fridge",
+    bg: "from-sky-50 to-sky-100",
+    iconBg: "bg-sky-200",
+  },
+
+  {
+    title: "Water Dispenser",
+    sub: "Each floor",
+    icon: "water",
+    bg: "from-teal-50 to-teal-100",
+    iconBg: "bg-teal-200",
+  },
+]
+
+,
+
+electricity: {
+    included: true,
+    text: "Electricity Bill Included (No Extra Charges)",
+  },
   food: {
     subtitle: "Homely food • 3 times daily",
     daily: "Breakfast, Lunch & Dinner",
