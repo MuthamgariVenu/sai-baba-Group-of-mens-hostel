@@ -101,7 +101,7 @@ export const grandData = {
 ,
 electricity: {
    included: true,
-    text: "Seperate Spcae Availbale(For Night Shift)",
+    text: "Seperate Space Availbale(For Night Shift)",
 },
 
 
