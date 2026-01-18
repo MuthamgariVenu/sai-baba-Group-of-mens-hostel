@@ -10,8 +10,8 @@ export const grandData = {
     mapUrl: "https://maps.app.goo.gl/gZSfBzVm6mLho5UAA?g_st=iw",
     title: "Platinum Nest Men's PG&Hostel",
     subtitle: "Luxury Rooms • Prime Location",
-    primaryPhone: "9701716111",
-    secondaryPhone: "9985499864",
+    primaryPhone: "7013601328",
+    secondaryPhone: "8978499854",
   },
 
   // ✅ ADD THIS (VERY IMPORTANT)
@@ -101,7 +101,7 @@ export const grandData = {
 ,
 electricity: {
    included: true,
-    text: "Sepearte Spcae Availbale(For Night Shift)",
+    text: "Seperate Spcae Availbale(For Night Shift)",
 },
 
 
