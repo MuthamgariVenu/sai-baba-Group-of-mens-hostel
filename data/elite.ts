@@ -120,7 +120,7 @@ electricity: {
     { src: "/images/room.jpg", label: "Room" },
     { src: "/images/room1.jpg", label: "Room" },
     { src: "/images/room2.jpg", label: "Room" },
-    { src: "/images/BathroomE3.jpg", label: "Room" },
-    { src: "/images/outsideV3.jpg", label: "Outside" },
+    
+
   ],
 };
