@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export type GalleryItem = {
   src: string;
@@ -13,37 +14,20 @@ type Props = {
 };
 
 export default function GalleryCard({ data }: Props) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
 
-  const activeImage =
-    activeIndex !== null ? data[activeIndex] : null;
-
-  // 👉 Swipe logic
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
+  const openViewer = (index: number) => {
+    setCurrent(index);
+    setOpen(true);
   };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null || activeIndex === null) return;
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % data.length);
+  };
 
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-
-    // Swipe threshold
-    if (diff > 50) {
-      // Swipe Left → Next
-      setActiveIndex((prev) =>
-        prev! === data.length - 1 ? 0 : prev! + 1
-      );
-    } else if (diff < -50) {
-      // Swipe Right → Previous
-      setActiveIndex((prev) =>
-        prev! === 0 ? data.length - 1 : prev! - 1
-      );
-    }
-
-    setTouchStartX(null);
+  const prev = () => {
+    setCurrent((prev) => (prev - 1 + data.length) % data.length);
   };
 
   return (
@@ -61,11 +45,10 @@ export default function GalleryCard({ data }: Props) {
 
         <div className="flex gap-3 overflow-x-auto">
           {data.map((img, i) => (
-            <div
+            <button
               key={i}
-              onClick={() => setActiveIndex(i)}
-              className="relative min-w-[120px] h-[90px] 
-              rounded-xl overflow-hidden cursor-pointer"
+              onClick={() => openViewer(i)}
+              className="relative min-w-[120px] h-[90px] rounded-xl overflow-hidden focus:outline-none"
             >
               <Image
                 src={img.src}
@@ -73,55 +56,54 @@ export default function GalleryCard({ data }: Props) {
                 fill
                 className="object-cover"
               />
-
-              <span className="absolute bottom-1 left-1 
-              bg-black/60 text-white text-xs px-2 rounded">
+              <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-2 rounded">
                 {img.label}
               </span>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
-      {/* 🔹 FULLSCREEN PREVIEW + SWIPE */}
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 
-          flex items-center justify-center"
-          onClick={() => setActiveIndex(null)}
-        >
-          <div
-            className="relative w-full h-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+      {/* 🔹 FULLSCREEN VIEWER */}
+      {open && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
+          {/* Close */}
+          <button
+            onClick={() => setOpen(false)}
+            className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full"
           >
-            {/* Close */}
-            <button
-              onClick={() => setActiveIndex(null)}
-              className="absolute top-4 right-4 
-              bg-black/70 text-white w-9 h-9 
-              rounded-full flex items-center justify-center z-50"
-            >
-              ✕
-            </button>
+            <X className="w-5 h-5" />
+          </button>
 
-            {/* Image */}
-            <div className="relative w-full h-[85vh] max-w-xl">
-              <Image
-                src={activeImage.src}
-                alt={activeImage.label}
-                fill
-                className="object-contain"
-              />
-            </div>
+          {/* Previous */}
+          <button
+            onClick={prev}
+            className="absolute left-3 md:left-8 text-white bg-black/60 p-3 rounded-full"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-            {/* Label */}
-            <div className="absolute bottom-6 
-            text-white text-sm font-medium">
-              {activeImage.label}
-            </div>
+          {/* Image */}
+          <div className="relative w-[90vw] max-w-3xl h-[70vh]">
+            <Image
+              src={data[current].src}
+              alt={data[current].label}
+              fill
+              className="object-contain rounded-xl"
+            />
+            <p className="absolute bottom-3 left-1/2 -translate-x-1/2 
+              text-white text-sm bg-black/60 px-3 py-1 rounded-full">
+              {data[current].label}
+            </p>
           </div>
+
+          {/* Next */}
+          <button
+            onClick={next}
+            className="absolute right-3 md:right-8 text-white bg-black/60 p-3 rounded-full"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       )}
     </>
