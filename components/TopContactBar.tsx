@@ -4,36 +4,27 @@ import { Phone, Mail } from "lucide-react";
 
 export default function TopContactBar() {
   return (
-    <div className="w-full bg-indigo-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="w-full bg-indigo-900 text-white text-sm">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
 
-        {/* LEFT: PHONE NUMBERS */}
-        <div className="flex items-center gap-4 text-sm">
+        {/* Left */}
+        <div className="flex flex-wrap items-center gap-4 justify-center sm:justify-start">
           <span className="flex items-center gap-1">
             <Phone className="w-4 h-4" />
             89784 99854
           </span>
 
-          <span className="hidden sm:flex items-center gap-1">
+          <span className="flex items-center gap-1">
             <Phone className="w-4 h-4" />
             99854 99864
           </span>
         </div>
 
-        {/* RIGHT: EMAIL */}
-        <div className="hidden sm:flex items-center gap-1 text-sm">
+        {/* Right */}
+        <div className="flex items-center justify-center sm:justify-end gap-2">
           <Mail className="w-4 h-4" />
-          info@saibabagroupofhostels.in
+          <span>info@saibabagroupofhostels.in</span>
         </div>
-
-        {/* MOBILE: CALL ICON */}
-        <a
-          href="tel:8978499854"
-          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white/15"
-          aria-label="Call"
-        >
-          <Phone className="w-4 h-4" />
-        </a>
 
       </div>
     </div>
