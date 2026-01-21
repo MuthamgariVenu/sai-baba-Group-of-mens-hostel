@@ -1,31 +1,43 @@
 "use client";
 
+import Image from "next/image";
 import { Phone, Mail } from "lucide-react";
 
 export default function TopContactBar() {
   return (
-    <div className="w-full bg-indigo-900 text-white text-sm">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+    <div className="w-full bg-indigo-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
-        {/* Left */}
-        <div className="flex flex-wrap items-center gap-4 justify-center sm:justify-start">
-          <span className="flex items-center gap-1">
-            <Phone className="w-4 h-4" />
-            89784 99854
-          </span>
+        {/* LEFT: Logo + Phones */}
+        <div className="flex items-center gap-4">
+          
+          {/* LOGO */}
+          <Image
+            src="/logo/sb-pgs-logo.png"
+            alt="SB PG's Logo"
+            width={90}
+            height={32}
+            priority
+          />
 
-          <span className="flex items-center gap-1">
-            <Phone className="w-4 h-4" />
-            99854 99864
-          </span>
+          {/* Phones */}
+          <div className="hidden sm:flex items-center gap-4 text-sm">
+            <span className="flex items-center gap-1">
+              <Phone className="w-4 h-4" />
+              89784 99854
+            </span>
+            <span className="flex items-center gap-1">
+              <Phone className="w-4 h-4" />
+              99854 99864
+            </span>
+          </div>
         </div>
 
-        {/* Right */}
-        <div className="flex items-center justify-center sm:justify-end gap-2">
+        {/* RIGHT: Email */}
+        <div className="hidden sm:flex items-center gap-2 text-sm">
           <Mail className="w-4 h-4" />
-          <span>info@saibabagroupofhostels.in</span>
+          info@saibabagroupofhostels.in
         </div>
-
       </div>
     </div>
   );
