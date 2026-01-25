@@ -48,13 +48,6 @@ facilities: [
     bg: "from-cyan-50 to-cyan-100",
     iconBg: "bg-cyan-200",
   },
-{
-  title: "Daily Cleaning",
-  sub: "Rooms & common areas",
-  icon: "cleaning",
-  bg: "from-emerald-50 to-emerald-100",
-  iconBg: "bg-emerald-200",
-},
 
   {
     title: "Geyser",
@@ -63,6 +56,13 @@ facilities: [
     bg: "from-orange-50 to-orange-100",
     iconBg: "bg-orange-200",
   },
+{
+  title: "Daily Cleaning",
+  sub: "Rooms & common",
+  icon: "cleaning",
+  bg: "from-emerald-50 to-emerald-100",
+  iconBg: "bg-emerald-200",
+},
 
   {
     title: "Refrigerator",

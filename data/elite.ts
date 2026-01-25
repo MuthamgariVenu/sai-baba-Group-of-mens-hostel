@@ -60,12 +60,11 @@ export const eliteData = {
   },
 {
   title: "Daily Cleaning",
-  sub: "Rooms&common areas",
+  sub: "Rooms & common",
   icon: "cleaning",
   bg: "from-emerald-50 to-emerald-100",
   iconBg: "bg-emerald-200",
 },
-
 
   {
     title: "Geyser",
