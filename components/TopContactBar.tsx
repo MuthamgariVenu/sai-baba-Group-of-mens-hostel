@@ -1,38 +1,66 @@
 "use client";
 
-import { Phone } from "lucide-react";
+import { Phone, Home } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function TopContactBar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   return (
-    <div className="w-full sticky top-0 z-50 bg-[#4b3f72]">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col items-center gap-1">
+    <div className="w-full sticky top-0 z-50
+                    bg-gradient-to-r from-[#2b2a7a] to-[#3a2f9b]
+                    shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-3
+                      flex flex-col sm:flex-row
+                      sm:items-center sm:justify-between gap-2">
 
-        {/* Phone Numbers */}
-        <div className="flex items-center gap-6 text-sm font-semibold">
+        {/* LEFT SIDE */}
+        <div className="flex flex-wrap items-center gap-6 justify-center sm:justify-start">
 
-          {/* Number 1 */}
+          {/* Phone 1 – Yellow */}
           <a
             href="tel:8978499854"
-            className="flex items-center gap-1 text-amber-300 animate-pulse hover:text-amber-200 transition"
+            className="flex items-center gap-1 font-semibold
+                       text-yellow-400 animate-pulse
+                       hover:text-yellow-300 transition"
           >
             <Phone className="w-4 h-4" />
             89784 99854
           </a>
 
-          {/* Number 2 */}
+          {/* Phone 2 – Cyan */}
           <a
             href="tel:9985499864"
-            className="flex items-center gap-1 text-emerald-300 animate-pulse hover:text-emerald-200 transition"
+            className="flex items-center gap-1 font-semibold
+                       text-cyan-300 animate-pulse
+                       hover:text-cyan-200 transition"
           >
             <Phone className="w-4 h-4" />
             99854 99864
           </a>
+
+          {/* HOME BUTTON – only on other pages */}
+          {!isHomePage && (
+            <Link
+              href="/"
+              className="flex items-center gap-1 px-3 py-1
+                         rounded-full bg-white/20
+                         text-white font-medium
+                         hover:bg-white hover:text-[#2b2a7a]
+                         transition"
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+          )}
         </div>
 
-        {/* Tagline */}
-        <p className="text-[11px] text-white/80 tracking-wide">
+        {/* RIGHT SIDE TEXT */}
+        <div className="text-xs text-white/90 text-center sm:text-right tracking-wide">
           Sai Baba Men’s PG • Hyderabad
-        </p>
+        </div>
 
       </div>
     </div>
