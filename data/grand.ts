@@ -126,11 +126,17 @@ electricity: {
   },
 
   gallery: [
+    { src: "/images/p0.jpg", label: "OutSide" },
     { src: "/images/p1.jpg", label: "Entrance" },
+     { src: "/images/p7.jpg", label: "Lift" },
     { src: "/images/p2.jpg", label: "Hall" },
     { src: "/images/p3.jpg", label: "TV" },
     { src: "/images/p4.jpg", label: "Power Backup" },
     { src: "/images/p5.jpg", label: "Room" },
+    { src: "/images/p6.jpg", label: "Refrigerator" },
+   
+    { src: "/images/p8.jpg", label: "BathRoom" },
+
     
   ],
 };
