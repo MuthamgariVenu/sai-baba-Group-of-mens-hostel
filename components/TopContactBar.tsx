@@ -1,65 +1,38 @@
 "use client";
 
-import { Phone, Mail, Home } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Phone } from "lucide-react";
 
 export default function TopContactBar() {
-  const pathname = usePathname();
-  const isHomePage = pathname === "/";
-
   return (
-    <div className="w-full bg-indigo-900 text-white text-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+    <div className="w-full sticky top-0 z-50 bg-[#4b3f72]">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col items-center gap-1">
 
-        {/* LEFT SIDE – exact order */}
-        <div className="flex flex-wrap items-center gap-6 justify-center sm:justify-start">
+        {/* Phone Numbers */}
+        <div className="flex items-center gap-6 text-sm font-semibold">
 
-          {/* Contact 1 */}
+          {/* Number 1 */}
           <a
             href="tel:8978499854"
-            className="flex items-center gap-1 font-semibold animate-pulse cursor-pointer text-yellow-300 hover:text-yellow-200 transition"
+            className="flex items-center gap-1 text-amber-300 animate-pulse hover:text-amber-200 transition"
           >
             <Phone className="w-4 h-4" />
             89784 99854
           </a>
 
-          {/* Contact 2 */}
+          {/* Number 2 */}
           <a
             href="tel:9985499864"
-            className="flex items-center gap-1 font-semibold animate-pulse cursor-pointer text-green-300 hover:text-green-200 transition"
+            className="flex items-center gap-1 text-emerald-300 animate-pulse hover:text-emerald-200 transition"
           >
             <Phone className="w-4 h-4" />
             99854 99864
           </a>
-
-          {/* LAST ITEM: Landing → Site Name | Other pages → Home */}
-          {isHomePage ? (
-            <span className="font-semibold text-white">
-              Sai Baba Men’s PG
-            </span>
-          ) : (
-            <Link
-              href="/"
-              className="flex items-center gap-1 font-semibold text-white hover:text-yellow-300 transition"
-              aria-label="Go to Home Page"
-            >
-              <Home className="w-4 h-4" />
-              Home
-            </Link>
-          )}
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="flex items-center justify-center sm:justify-end gap-2">
-          <Mail className="w-4 h-4" />
-          <a
-            href="mailto:info@saibabagroupofhostels.in"
-            className="hover:text-yellow-300 transition"
-          >
-            info@saibabagroupofhostels.in
-          </a>
-        </div>
+        {/* Tagline */}
+        <p className="text-[11px] text-white/80 tracking-wide">
+          Sai Baba Men’s PG • Hyderabad
+        </p>
 
       </div>
     </div>
