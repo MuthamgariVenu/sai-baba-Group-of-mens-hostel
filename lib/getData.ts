@@ -1,26 +1,44 @@
 import fs from 'fs';
 import path from 'path';
+import { connectDB } from './mongodb';
+import { HostelDataModel } from './models/HostelData';
 
-const DATA_FILE = path.join(process.cwd(), 'data', 'hostelData.json');
+type Branch = {
+  id: string;
+  title: string;
+  location: string;
+  badge: string;
+  icon: string;
+  bg: string;
+  href: string;
+};
 
-export function getFullHostelData() {
-  const raw = fs.readFileSync(DATA_FILE, 'utf-8');
-  return JSON.parse(raw);
+// Reads from MongoDB; seeds from hostelData.json on first run
+export async function getFullHostelData() {
+  await connectDB();
+
+  let doc = await HostelDataModel.findOne().lean();
+
+  if (!doc) {
+    const filePath = path.join(process.cwd(), 'data', 'hostelData.json');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const seed = JSON.parse(raw);
+    const created = await HostelDataModel.create(seed);
+    return { branches: created.branches, branchDetails: created.branchDetails as Record<string, unknown> };
+  }
+
+  return {
+    branches: doc.branches as Branch[],
+    branchDetails: doc.branchDetails as Record<string, unknown>,
+  };
 }
 
-export function getBranches() {
-  return getFullHostelData().branches as Array<{
-    id: string;
-    title: string;
-    location: string;
-    badge: string;
-    icon: string;
-    bg: string;
-    href: string;
-  }>;
+export async function getBranches(): Promise<Branch[]> {
+  const data = await getFullHostelData();
+  return data.branches;
 }
 
-export function getBranchDetail(id: string) {
-  const data = getFullHostelData();
-  return data.branchDetails[id] ?? null;
+export async function getBranchDetail(id: string) {
+  const data = await getFullHostelData();
+  return (data.branchDetails[id] as Record<string, unknown>) ?? null;
 }

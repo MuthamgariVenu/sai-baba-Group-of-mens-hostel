@@ -8,7 +8,7 @@ export default async function DynamicBranchPage({
   params: Promise<{ branchId: string }>;
 }) {
   const { branchId } = await params;
-  const data = getBranchDetail(branchId);
+  const data = await getBranchDetail(branchId);
   if (!data) return notFound();
   return <PgPage data={data} />;
 }
