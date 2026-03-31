@@ -10,7 +10,8 @@ export interface IHostelData extends Document {
     bg: string;
     href: string;
   }>;
-  branchDetails: Record<string, unknown>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  branchDetails: Record<string, any>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
