@@ -40,5 +40,6 @@ export async function getBranches(): Promise<Branch[]> {
 
 export async function getBranchDetail(id: string) {
   const data = await getFullHostelData();
-  return (data.branchDetails[id] as Record<string, unknown>) ?? null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (data.branchDetails[id] as any) ?? null;
 }
