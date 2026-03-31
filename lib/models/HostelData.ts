@@ -13,7 +13,8 @@ export interface IHostelData extends Document {
   branchDetails: Record<string, unknown>;
 }
 
-const HostelDataSchema = new Schema<IHostelData>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const HostelDataSchema = new Schema<any>(
   {
     branches: { type: [Schema.Types.Mixed], required: true },
     branchDetails: { type: Schema.Types.Mixed, required: true },

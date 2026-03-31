@@ -24,12 +24,14 @@ export async function getFullHostelData() {
     const raw = fs.readFileSync(filePath, 'utf-8');
     const seed = JSON.parse(raw);
     const created = await HostelDataModel.create(seed);
-    return { branches: created.branches, branchDetails: created.branchDetails as Record<string, unknown> };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return { branches: created.branches, branchDetails: created.branchDetails as Record<string, any> };
   }
 
   return {
     branches: doc.branches as Branch[],
-    branchDetails: doc.branchDetails as Record<string, unknown>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    branchDetails: doc.branchDetails as Record<string, any>,
   };
 }
 
@@ -38,8 +40,8 @@ export async function getBranches(): Promise<Branch[]> {
   return data.branches;
 }
 
-export async function getBranchDetail(id: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getBranchDetail(id: string): Promise<any | null> {
   const data = await getFullHostelData();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (data.branchDetails[id] as any) ?? null;
+  return data.branchDetails[id] ?? null;
 }
